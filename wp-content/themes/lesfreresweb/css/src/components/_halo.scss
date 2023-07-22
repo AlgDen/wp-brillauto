@@ -1,0 +1,45 @@
+.halo {
+  display: block;
+  position: absolute;
+  height: 70rem;
+  width: 70rem;
+  max-width: 100%;
+  border-radius: 100rem;
+
+  &--first {
+    top: -10rem;
+    left: -20rem;
+    background-color: var(--color-blue-halo);
+    box-shadow: 0 0 20rem 20rem var(--color-blue-halo);
+    z-index: -1;
+  }
+
+  &--second {
+    top: -10rem;
+    right: 0;
+    background-color: var(--color-yellow-halo);
+    box-shadow: 0 0 70rem 70rem var(--color-yellow-halo);
+  }
+
+  &--third {
+    bottom: -20rem;
+    left: -20rem;
+    background-color: var(--color-yellow-halo);
+    box-shadow: 0 0 20rem 20rem var(--color-yellow-halo);
+  }
+
+  &--fourth {
+    bottom: -20rem;
+    right: 0rem;
+    background-color: var(--color-blue-halo);
+    box-shadow: 0 0 70rem 70rem var(--color-blue-halo);
+  }
+
+  &--blue {
+    z-index: -1;
+  }
+
+  &--yellow {
+    z-index: -2;
+  }
+}

@@ -1,0 +1,60 @@
+.form {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  &__input {
+    display: block;
+    margin-bottom: 1.6rem;
+    padding: 1.8rem 3.2rem;
+    @include text;
+    font-family: inherit;
+
+    // RESET
+    border: var(--border-grey);
+    background-color: var(--color-white);
+    &:focus {
+      outline: none;
+    }
+
+    &::placeholder {
+      color: var(--color-grey-light);
+    }
+  }
+
+  &__textarea {
+    display: block;
+    padding: 1.8rem 3.2rem;
+    @include text;
+    font-family: inherit;
+
+    // RESET
+    resize: none;
+    border: var(--border-grey);
+    background-color: var(--color-white);
+    &:focus {
+      outline: none;
+    }
+
+    &::placeholder {
+      color: var(--color-grey-light);
+    }
+  }
+
+  &__submit {
+    cursor: pointer;
+    margin-top: 2.4rem;
+    align-self: center;
+    color: var(--color-white);
+
+    border: none;
+    &:focus {
+      outline: none;
+    }
+
+    &--footer {
+      color: var(--color-black);
+    }
+  }
+}

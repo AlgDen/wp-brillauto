@@ -1,0 +1,97 @@
+.formule-card {
+  flex: 1 0 32%;
+
+  background-color: var(--color-white);
+  border-radius: 2.8rem;
+  box-shadow: 0px 4px 20px -3px rgba(0, 0, 0, 0.12);
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 4.8rem;
+  padding-top: 10rem;
+
+  @media screen and (max-width: 35.3125em) {
+    flex: 1 0 100%;
+  }
+
+  &__icon {
+    width: 11.8rem;
+    height: 11.3rem;
+
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background-color: var(--color-white);
+    box-shadow: 0px 4px 20px -3px rgba(0, 0, 0, 0.12);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    svg {
+      width: 7.3rem;
+      height: 7.3rem;
+    }
+  }
+
+  &__title {
+    @include title-little;
+    color: var(--color-primary);
+    margin-bottom: 1.6rem;
+    text-align: center;
+  }
+
+  &__price {
+    width: 100%;
+    text-align: center;
+    @include title-little;
+    color: var(--color-grey-light);
+    position: relative;
+    margin-bottom: 1.6rem;
+
+    span {
+      position: relative;
+      z-index: 100;
+
+      background-color: var(--color-white);
+      padding: 0 2.8rem;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translate(0, 50%);
+      height: 2px;
+      width: 100%;
+      background-color: var(--color-grey-light);
+      z-index: 99;
+    }
+  }
+
+  &__duration {
+    @include text;
+    color: var(--color-grey-light);
+    margin-bottom: 3.6rem;
+  }
+
+  &__services {
+    margin-bottom: 5.8rem;
+    flex: 1;
+  }
+
+  &__service {
+    @include text;
+    color: var(--color-grey-dark);
+
+    &:not(:last-child) {
+      margin-bottom: 0.8rem;
+    }
+  }
+}

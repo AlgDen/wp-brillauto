@@ -1,0 +1,24 @@
+.link {
+  &:link,
+  &:visited {
+    @include subtitle;
+    display: block;
+    text-align: center;
+  }
+
+  &--black {
+    color: var(--color-black);
+  }
+
+  &--white {
+    color: var(--color-white);
+  }
+
+  &--grey {
+    color: var(--color-grey-light);
+  }
+
+  &--no-underline {
+    text-decoration: none;
+  }
+}

@@ -1,0 +1,11 @@
+.contact-us-detail-wrapper {
+  display: flex;
+  gap: 2rem;
+
+  @include respond(tab-port) {
+    flex-direction: column;
+  }
+}
+
+.company-info {
+}

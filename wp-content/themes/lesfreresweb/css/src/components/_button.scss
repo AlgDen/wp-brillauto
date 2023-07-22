@@ -1,0 +1,47 @@
+.btn {
+  display: inline-block;
+  position: relative;
+  z-index: 116;
+  padding: 1.4rem 5.6rem;
+  border-radius: 100px;
+  font-size: var(--font-size-subtitle);
+  font-weight: var(--font-weight-medium);
+  text-align: center;
+
+  &--white {
+    background-color: var(--color-white);
+
+    &:link,
+    &:visited {
+      color: var(--color-black);
+      text-decoration: none;
+    }
+
+    &.btn--animation-color:hover {
+      color: var(--color-white);
+      background-color: var(--color-primary);
+    }
+  }
+
+  &--blue {
+    background-color: var(--color-primary);
+
+    &:link,
+    &:visited {
+      color: var(--color-white);
+      text-decoration: none;
+    }
+  }
+
+  &--shadow {
+    box-shadow: 0 4px 3.6rem 2px rgba(0, 0, 0, 0.25);
+  }
+
+  &--animation-scale {
+    transition: all 0.2s;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}

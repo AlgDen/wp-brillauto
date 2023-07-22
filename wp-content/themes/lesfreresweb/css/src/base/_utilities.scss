@@ -1,0 +1,68 @@
+.u-title {
+  font-size: var(--font-size-title);
+  font-weight: var(--font-weight-black);
+}
+
+.u-padding-vertical-huge {
+  padding: 12rem 0;
+}
+
+.u-padding-vertical-bigger {
+  padding: 9rem 0;
+}
+
+.u-padding-vertical-big {
+  padding: 7rem 0;
+}
+
+// MARGIN BOTTOM
+.u-margin-bottom-bigger {
+  margin-bottom: 9.6rem;
+}
+
+.u-margin-bottom-big {
+  margin-bottom: 6.4rem !important;
+}
+
+.u-margin-bottom-normal {
+  margin-bottom: 4.8rem;
+}
+
+.u-margin-bottom-small {
+  margin-bottom: 3.6rem;
+}
+
+.u-margin-bottom-smaller {
+  margin-bottom: 1.6rem;
+}
+
+// TEXT
+.u-title {
+  @include title;
+  overflow-wrap: break-word;
+}
+
+.u-title-little {
+  @include title-little;
+}
+
+.u-subtitle {
+  @include subtitle;
+}
+
+.u-text {
+  @include text;
+}
+
+.u-center-text {
+  text-align: center;
+}
+
+// FLEXBOX
+.u-flex {
+  display: flex;
+}
+
+.u-row-space-between {
+  justify-content: space-between;
+}

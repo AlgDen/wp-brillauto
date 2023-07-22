@@ -1,0 +1,78 @@
+.faq {
+  display: flex;
+  gap: 6.4rem;
+  align-items: flex-start;
+
+  @include respond(tab-port) {
+    flex-direction: column;
+    gap: 4rem;
+  }
+
+  &__list {
+    list-style: none;
+
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    align-items: flex-start;
+  }
+
+  &__item {
+    flex: 1 0 40%;
+    padding-bottom: 2.4rem;
+    border-bottom: var(--border-grey);
+    cursor: pointer;
+  }
+
+  &__item--active &__question::before {
+    content: "-";
+  }
+
+  &__item--active &__answer {
+    opacity: 1;
+    padding: 2.4rem 0;
+    height: auto;
+    visibility: visible;
+  }
+
+  &__question {
+    position: relative;
+    @include title-little;
+
+    @include respond(tab-port) {
+      display: flex;
+    }
+
+    &::before {
+      content: "+";
+
+      @include title-little;
+      background-color: var(--color-secondary);
+      width: 4.4rem;
+      height: 4.4rem;
+      border-radius: 50%;
+      margin-right: 6.2rem;
+
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+
+      @include respond(tab-port) {
+        margin-right: 3rem;
+        flex: 0 0 4.4rem;
+      }
+    }
+  }
+
+  &__answer {
+    @include text;
+
+    // Animation
+    transform-origin: top;
+    opacity: 0;
+    padding: 0;
+    height: 0;
+    visibility: hidden;
+    transition: 0.2s ease;
+  }
+}

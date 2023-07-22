@@ -1,0 +1,20 @@
+.avis {
+  &__title {
+    @include title;
+    text-align: center;
+  }
+
+  &__average {
+    @include title-little;
+    text-align: center;
+  }
+
+  &__wrapper {
+    display: flex;
+    gap: 2rem;
+
+    @include respond(tab-port) {
+      flex-wrap: wrap;
+    }
+  }
+}

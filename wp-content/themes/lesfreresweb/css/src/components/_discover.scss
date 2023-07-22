@@ -1,0 +1,51 @@
+.discover {
+  display: flex;
+
+  @include respond(tab-port) {
+    flex-direction: column;
+  }
+
+  &__left {
+    flex: 1;
+    padding-right: 4rem;
+
+    @include respond(tab-port) {
+      padding: 0;
+    }
+  }
+
+  &__right {
+    flex: 0 0 40%;
+  }
+
+  &__img {
+    width: 100%;
+    max-height: 40rem;
+    object-fit: cover;
+    background-position: top;
+    border-radius: 2.8rem;
+  }
+
+  &__title {
+    color: var(--color-white);
+    margin-bottom: 3.6rem;
+
+    @include respond(tab-port) {
+      text-align: center;
+    }
+  }
+
+  &__paragraph {
+    font-size: var(--font-size-normal);
+    color: var(--color-white);
+
+    span:not(:last-child) {
+      margin-bottom: 2rem;
+      display: block;
+    }
+
+    @include respond(tab-port) {
+      margin-bottom: 3rem;
+    }
+  }
+}

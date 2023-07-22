@@ -1,0 +1,41 @@
+.section-discover {
+  overflow: hidden;
+  background-color: var(--color-blue-dark);
+}
+
+.section-formules {
+  overflow: hidden;
+  background-color: rgba(#f2f5f7, 0.1);
+  overflow: hidden;
+  position: relative;
+  padding: 7rem 0;
+  padding-bottom: 9rem;
+}
+
+.section-processus {
+  overflow: hidden;
+  background-color: var(--color-blue-dark);
+}
+
+.section-avis {
+  overflow: hidden;
+  position: relative;
+  background-color: rgba(#f2f5f7, 0.1);
+}
+
+.section-engagements {
+  background-color: var(--color-blue-dark);
+  color: var(--color-white);
+
+  &__title {
+    @include title;
+    text-align: center;
+  }
+}
+
+.section-faq {
+}
+
+.section-contact-us {
+  position: relative;
+}

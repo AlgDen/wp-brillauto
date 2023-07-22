@@ -1,0 +1,136 @@
+.footer {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+
+  .container--footer {
+    display: grid;
+    grid-template-columns: 50% auto;
+    grid-template-rows: repeat(2, auto);
+    grid-column-gap: 12.4rem;
+    grid-row-gap: 4.8rem;
+  }
+
+  &__left {
+    // background-color: var(--color-black);
+    @include respond(tab-port) {
+      grid-column: 1/-1;
+    }
+
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: repeat(2, auto);
+  }
+
+  &__contact-us {
+    grid-row: 2 / span 1;
+  }
+
+  &__right {
+    // background-color: var(--color-black);
+    @include respond(tab-port) {
+      grid-column: 1/-1;
+    }
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__bottom {
+    grid-column: 1/-1;
+    padding-top: 4.8rem;
+    border-top: 2px solid var(--color-grey-light);
+  }
+
+  &__lists {
+    display: flex;
+    gap: 4.8rem;
+    flex-wrap: wrap;
+  }
+
+  &__list {
+    list-style: none;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+  }
+
+  &__item {
+    @include text;
+    @include respond(tab-port) {
+      font-size: 2rem;
+    }
+  }
+
+  &__link:link,
+  &__link:visited {
+    color: var(--color-white);
+    display: block;
+  }
+
+  &__menu {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6.4rem;
+
+    @include respond(tab-port) {
+      flex-direction: column;
+      gap: 5.6rem;
+    }
+  }
+
+  &__phone {
+    padding: 1.6rem;
+    border: 2px solid var(--color-grey-light);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  &__block-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 1.6rem;
+
+    @include respond(tab-port) {
+      display: block;
+      margin-bottom: 2.4rem;
+
+      & .u-title-little {
+        margin-bottom: 1.6rem;
+      }
+    }
+  }
+
+  &__socials {
+    margin-top: 2.4rem;
+    height: 5.05rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2.4rem;
+  }
+
+  &__icon {
+    width: 4.2rem;
+    height: 4.2rem;
+    transition: all 0.2 ease-out;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &__maps {
+    flex: 1;
+    font-size: 1.4rem;
+    // background-color: aqua;
+
+    @include respond(tab-port) {
+      flex: none;
+      height: 30rem;
+    }
+  }
+}

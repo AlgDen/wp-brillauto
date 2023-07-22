@@ -1,0 +1,18 @@
+.formules {
+  z-index: 3;
+  position: relative;
+
+  &__title {
+    color: var(--color-primary);
+  }
+
+  &__wrapper {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+
+    @media screen and (max-width: 35.3125em) {
+      gap: 8rem;
+    }
+  }
+}
