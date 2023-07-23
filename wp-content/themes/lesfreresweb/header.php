@@ -42,10 +42,20 @@
           ?>
         </nav>
 
-        <?php wp_nav_menu( array( 'theme_location' => 'main-bottom' ) ); ?>
+        <nav class="navbot">
+          <?php wp_nav_menu(
+              array (
+                'theme_location' => 'main-bottom',
+                'container_class' => 'container container--navigation',
+                'menu_class' => 'navbot__list',
+                'lfw_menu_item_class' => 'navbot__item',
+                'lfw_menu_link_class' => 'navbot__link'
+              )
+            );
+          ?>
+        </nav>
 
         <!-- <nav class="navbot">
-          <div class="container container--navigation">
             <ul class="navbot__list">
               <li class="navbot__item">
                 <a href="#" class="navbot__link navbot__link--first">Accueil</a>
