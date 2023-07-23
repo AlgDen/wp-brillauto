@@ -23,7 +23,7 @@ function lesfreresweb_register_assets() {
   // Déclarer un fichier CSS
   wp_enqueue_style( 
       'style', 
-      get_template_directory_uri() . '/css/dest/style.css',
+      get_template_directory_uri() . '/css/dest/main.min.css',
       array(),
       '1.0'
   );
@@ -35,6 +35,16 @@ register_nav_menus( array(
 	'main-top' => 'Menu Principal Haut',
 	'main-bottom' => 'Menu Principal Bas',
 ) );
+
+// Fonction pour ajouter une classe personnalisée aux balises li du menu
+function add_custom_menu_classes($classes, $item, $args) {
+  // Ajoutez ici le nom de la classe que vous souhaitez appliquer aux balises li
+  if ($args->theme_location === 'main-top') {
+    $classes[] = 'navtop__item';
+  }
+  return $classes;
+}
+add_filter('nav_menu_css_class', 'add_custom_menu_classes', 10, 3);
 
 // cpt
 function lesfreresweb_register_post_types() {
