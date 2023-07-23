@@ -35,39 +35,14 @@
                 'theme_location' => 'main-top',
                 'container_class' => 'container container--navigation',
                 'menu_class' => 'navtop__list',
+                'lfw_menu_item_class' => 'navtop__item',
+                'lfw_menu_link_class' => 'navtop__link'
               )
             );
           ?>
         </nav>
 
         <?php wp_nav_menu( array( 'theme_location' => 'main-bottom' ) ); ?>
-
-        <!-- <nav class="navtop">
-          <input type="checkbox" class="navtop__checkbox" id="navi-toggle" />
-          <label for="navi-toggle" class="navtop__button">
-            <span class="navtop__mobile-icon"></span>
-          </label>
-
-          <div class="container container--navigation">
-            <ul class="navtop__list">
-              <li class="navtop__item">Service de nettoyage à domicile</li>
-              <li class="navtop__item navtop__item--phone">
-                <a href="tel:+33767078200" class="navtop__link">
-                  <svg class="navtop__icon">
-                    <use href="img/svg-icons/sprite.svg#mobile-phone"></use>
-                  </svg>
-                  +33 7 67 07 82 00
-                </a>
-              </li>
-              <li class="navtop__item">
-                <a href="#" class="navtop__link">Contact</a>
-              </li>
-              <li class="navtop__item">
-                <a href="#" class="navtop__link">FAQ</a>
-              </li>
-            </ul>
-          </div>
-        </nav> -->
 
         <!-- <nav class="navbot">
           <div class="container container--navigation">

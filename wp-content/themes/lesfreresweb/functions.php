@@ -36,15 +36,25 @@ register_nav_menus( array(
 	'main-bottom' => 'Menu Principal Bas',
 ) );
 
-// Fonction pour ajouter une classe personnalisée aux balises li du menu
-function add_custom_menu_classes($classes, $item, $args) {
-  // Ajoutez ici le nom de la classe que vous souhaitez appliquer aux balises li
-  if ($args->theme_location === 'main-top') {
-    $classes[] = 'navtop__item';
+// ajoute des classes personnalisées aux menu items 
+function add_custom_menu_item_classes($classes, $item, $args) {
+  if (isset($args->lfw_menu_link_class)) {
+    $classes['class'] = $args->lfw_menu_item_class;
   }
+
   return $classes;
 }
-add_filter('nav_menu_css_class', 'add_custom_menu_classes', 10, 3);
+add_filter('nav_menu_css_class', 'add_custom_menu_item_classes', 10, 3);
+
+// ajoute des classes personnalisées aux anchor tags
+function add_custom_menu_link_classes($classes, $item, $args)
+{
+    if (isset($args->lfw_menu_link_class)) {
+        $classes['class'] = $args->lfw_menu_link_class;
+    }
+    return $classes;
+}
+add_filter('nav_menu_link_attributes', 'add_custom_menu_link_classes', 10, 3);
 
 // cpt
 function lesfreresweb_register_post_types() {
