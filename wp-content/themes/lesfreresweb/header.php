@@ -49,7 +49,10 @@
                 'container_class' => 'container container--navigation',
                 'menu_class' => 'navbot__list',
                 'lfw_menu_item_class' => 'navbot__item',
-                'lfw_menu_link_class' => 'navbot__link'
+                'lfw_menu_link_class' => 'navbot__link',
+                'lfw_submenu_item_class' => 'navbot__child-item',
+                'lfw_submenu_link_class' => 'navbot__child-link',
+                'lfw_submenu_class' => 'navbot__child-list',
               )
             );
           ?>

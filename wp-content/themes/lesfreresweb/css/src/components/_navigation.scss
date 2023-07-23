@@ -313,8 +313,8 @@
         margin-left: 0.8rem;
         transition: all 0.2s ease-in-out;
 
-        background-color: black;
-        mask-image: url("/img/svg-icons/expand_more.svg");
+        // background-color: black;
+        background-image: url("../../assets/svg-icons/expand_more.svg");
         mask-size: cover;
 
         @include respond(tab-land) {

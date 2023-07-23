@@ -37,24 +37,55 @@ register_nav_menus( array(
 ) );
 
 // ajoute des classes personnalisées aux menu items 
-function add_custom_menu_item_classes($classes, $item, $args) {
-  if (isset($args->lfw_menu_link_class)) {
+function lfw_add_custom_menu_item_classes($classes, $item, $args) {
+  if (isset($args->lfw_menu_item_class) && $item->menu_item_parent == 0) {
     $classes['class'] = $args->lfw_menu_item_class;
+  }
+  
+  if (isset($args->lfw_submenu_item_class) && $item->menu_item_parent > 0) {
+    $classes['class'] = $args->lfw_submenu_item_class;
   }
 
   return $classes;
 }
-add_filter('nav_menu_css_class', 'add_custom_menu_item_classes', 10, 3);
+add_filter('nav_menu_css_class', 'lfw_add_custom_menu_item_classes', 10, 3);
 
 // ajoute des classes personnalisées aux anchor tags
-function add_custom_menu_link_classes($classes, $item, $args)
-{
-    if (isset($args->lfw_menu_link_class)) {
-        $classes['class'] = $args->lfw_menu_link_class;
-    }
-    return $classes;
+function lfw_add_custom_menu_link_classes($atts, $item, $args) {
+  // menu niveau 0
+  if (isset($args->lfw_menu_link_class) && $item->menu_item_parent == 0) {
+      $atts['class'] = $args->lfw_menu_link_class;
+  }
+
+  // menu niveau 1
+  if (isset($args->lfw_submenu_link_class) && $item->menu_item_parent > 0) {
+    $atts['class'] = $args->lfw_submenu_link_class;
+  }
+
+  return $atts;
 }
-add_filter('nav_menu_link_attributes', 'add_custom_menu_link_classes', 10, 3);
+add_filter('nav_menu_link_attributes', 'lfw_add_custom_menu_link_classes', 10, 3);
+
+// Fonction pour ajouter des classes personnalisées au sous-menu en utilisant un filtre
+function lfw_add_submenu_class($classes, $args) {
+  if (isset($args->lfw_submenu_class) && !empty($args->lfw_submenu_class)) {
+      $classes[] = $args->lfw_submenu_class;
+  }
+  
+  return $classes;
+}
+add_filter('nav_menu_submenu_css_class', 'lfw_add_submenu_class', 10, 3);
+
+// Fonction pour ajouter un span autour de la balise anchor des éléments de menu avec la classe navbot__item--formules
+function add_span_to_menu_link($item_output, $item, $depth, $args) {
+    // Vérifiez si l'élément de menu a la classe navbot__item--formules
+    if (in_array('navbot__item--formules', $item->classes)) {
+      $item_output = '<a href="" class="navbot__link">' . '<span class="navbot__link--formules">' . $item->title . '</span>' . '</a>';
+    }
+
+  return $item_output;
+}
+add_filter('walker_nav_menu_start_el', 'add_span_to_menu_link', 10, 4);
 
 // cpt
 function lesfreresweb_register_post_types() {
