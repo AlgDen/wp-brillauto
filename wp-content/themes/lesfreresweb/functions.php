@@ -9,16 +9,25 @@ add_theme_support( 'title-tag' );
 function lesfreresweb_register_assets() {
     
   // // Déclarer jQuery
-  // wp_enqueue_script('jquery' );
+  wp_enqueue_script('jquery' );
   
-  // // Déclarer le JS
-  // wp_enqueue_script( 
-  //     'capitaine', 
-  //     get_template_directory_uri() . '/js/script.js', 
-  //     array( 'jquery' ), 
-  //     '1.0', 
-  //     true
-  // );
+  // Déclarer un fichier JS
+  wp_enqueue_script( 
+      'script', 
+      get_template_directory_uri() . '/js/dest/script.min.js', 
+      array( 'jquery', 'leaflet' ), 
+      '1.1', 
+      true
+  );
+
+  // Déclarer un fichier JS
+  wp_enqueue_script( 
+      'leaflet', 
+      'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js', 
+      array(), 
+      '1.1', 
+      true
+  );
   
   // Déclarer un fichier CSS
   wp_enqueue_style( 
