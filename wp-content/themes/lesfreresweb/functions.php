@@ -89,7 +89,7 @@ add_filter('nav_menu_submenu_css_class', 'lfw_add_submenu_class', 10, 3);
 function add_span_to_menu_link($item_output, $item, $depth, $args) {
     // Vérifiez si l'élément de menu a la classe navbot__item--formules
     if (in_array('navbot__item--formules', $item->classes)) {
-      $item_output = '<a href="" class="navbot__link">' . '<span class="navbot__link--formules">' . $item->title . '</span>' . '</a>';
+      $item_output = '<a class="navbot__link">' . '<span class="navbot__link--formules">' . $item->title . '</span>' . '</a>';
     }
 
   return $item_output;
@@ -166,3 +166,12 @@ function lesfreresweb_register_post_types() {
   register_post_type( 'realisations', $args );
 }
 add_action( 'init', 'lesfreresweb_register_post_types' ); // Le hook init lance la fonction
+
+// /**
+//  * Remove the href from empty links `<a href="#">` in the nav menus
+//  * @param string $menu the current menu HTML
+//  * @return string the modified menu HTML
+//  */
+// add_filter( 'wp_nav_menu_items', function ( $menu ) {
+//   return str_replace( '<a href="' . get_site_url() . '/formules/"', '<a', $menu );
+// } );

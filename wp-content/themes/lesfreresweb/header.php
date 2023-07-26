@@ -10,7 +10,6 @@
 </head>
 
 <body <?php body_class(); ?>>
-    
     <?php wp_body_open(); ?>
 
     <!-- HEADER -->
@@ -19,7 +18,7 @@
 
         <!-- @todo: dynamiser le logo -->
         <a href="<?php echo home_url( '/' ); ?>" class="navtop__logo">
-          <img src="img/svg-icons/logo.svg" alt="Logo de Brillauto" />
+          <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.svg" alt="Logo de Brillauto" />
         </a>
         
         <!-- @todo: dynamiser les 2 menus -->
@@ -58,64 +57,6 @@
           ?>
         </nav>
 
-        <!-- <nav class="navbot">
-            <ul class="navbot__list">
-              <li class="navbot__item">
-                <a href="#" class="navbot__link navbot__link--first">Accueil</a>
-              </li>
-              <li class="navbot__item navbot__item--formules">
-                <a href="#" class="navbot__link">
-                  <span class="navbot__link--formules"> Nos formules</span>
-                </a>
-                <ul class="navbot__child-list">
-                  <li class="navbot__child-item">
-                    <a href="#" class="navbot__child-link">
-                      Nettoyage intérieur classique
-                    </a>
-                  </li>
-                  <li class="navbot__child-item">
-                    <a href="#" class="navbot__child-link">
-                      Nettoyage intérieur deluxe
-                    </a>
-                  </li>
-                  <li class="navbot__child-item">
-                    <a href="#" class="navbot__child-link">
-                      Traitement déperlant vitres
-                    </a>
-                  </li>
-                  <li class="navbot__child-item">
-                    <a href="#" class="navbot__child-link">
-                      Traitement anti-buée
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li class="navbot__item">
-                <a href="#" class="navbot__link">Nos engagements</a>
-              </li>
-              <li class="navbot__item">
-                <a href="#" class="navbot__link">Notre processus</a>
-              </li>
-              <li class="navbot__item">
-                <a href="#" class="navbot__link">Nos réalisations</a>
-              </li>
-              <li class="navbot__item">
-                <a href="#" class="navbot__link navbot__link--last">Blog</a>
-              </li>
-              <li class="navbot__item navbot__item--call">
-                <a
-                  href="tel:+33767078200"
-                  class="navbot__link navbot__link--last"
-                >
-                  <svg class="navbot__icon">
-                    <use href="img/svg-icons/sprite.svg#mobile-phone"></use>
-                  </svg>
-                  +33 7 67 07 82 00</a
-                >
-              </li>
-            </ul>
-          </div>
-        </nav> -->
       </div>
 
       <!-- <div class="header__content">
