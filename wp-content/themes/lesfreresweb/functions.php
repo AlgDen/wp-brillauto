@@ -175,3 +175,17 @@ add_action( 'init', 'lesfreresweb_register_post_types' ); // Le hook init lance 
 // add_filter( 'wp_nav_menu_items', function ( $menu ) {
 //   return str_replace( '<a href="' . get_site_url() . '/formules/"', '<a', $menu );
 // } );
+
+// Pages d'options
+if( function_exists( 'acf_add_options_page' ) ) {
+	
+	acf_add_options_page( array(
+		'page_title' 	=> 'Options du thème',
+		'menu_title'	=> 'Options',
+		'menu_slug' 	=> 'theme-general-settings',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false,
+		'position'    => 2
+	) );
+	
+}

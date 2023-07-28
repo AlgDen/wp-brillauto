@@ -16,12 +16,10 @@
     <header class="header header--full-height">
       <div class="navigation">
 
-        <!-- @todo: dynamiser le logo -->
         <a href="<?php echo home_url( '/' ); ?>" class="navtop__logo">
           <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.svg" alt="Logo de Brillauto" />
         </a>
         
-        <!-- @todo: dynamiser les 2 menus -->
         <nav class="navtop">
           <!-- mobile version -->
           <input type="checkbox" class="navtop__checkbox" id="navi-toggle" />
@@ -59,22 +57,24 @@
 
       </div>
 
-      <!-- <div class="header__content">
-        <div class="header__text">
-          <h1 class="header__title">
-            <span>Faites briller votre voiture</span>
-          </h1>
-          <p class="header__desc">
-            <span>
-              Nous sommes spécialisés dans le nettoyage intérieur de voitures à
-              Nantes
-            </span>
-          </p>
-          <a
-            href="tel:+33767078200"
-            class="btn btn--white btn--animation-color btn--shadow"
-            >Nous appeler</a
-          >
+      <?php if(is_front_page()) : ?>
+          <div class="header__content" style="background-image:url(<?php the_field('home_header-bg', get_the_ID()); ?>">
+            <div class="header__text">
+              <h1 class="header__title">
+                <span><?php the_field('home_header-title', get_the_ID()); ?></span>
+              </h1>
+              <p class="header__desc">
+                <span>
+                  <?php the_field('home_header-subtitle', get_the_ID()); ?>
+                </span>
+              </p>
+              <a
+                href="tel:<?php the_field('options_phone-number', 'options'); ?>"
+                class="btn btn--white btn--animation-color btn--shadow"
+                >Nous appeler</a
+              >
+            </div>
         </div>
-      </div> -->
+      <?php endif; ?>
+      
     </header>
