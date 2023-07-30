@@ -36,6 +36,15 @@ function lesfreresweb_register_assets() {
       array(),
       '1.0'
   );
+
+  wp_enqueue_style(
+    'roboto-font',
+    'https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap',
+    array(),
+    '1.0',
+    'all'
+);
+
 }
 add_action( 'wp_enqueue_scripts', 'lesfreresweb_register_assets' );
 
@@ -164,6 +173,28 @@ function lesfreresweb_register_post_types() {
   );
 
   register_post_type( 'realisations', $args );
+
+  // CPT Avis google
+  $labels = array(
+    'name' => 'Avis Google',
+    'all_items' => 'Tous les avis google', // affiché dans le sous menu
+    'singular_name' => 'Avis Google',
+    'add_new_item' => 'Ajouter un avis',
+    'edit_item' => 'Modifier l\'avis',
+    'menu_name' => 'Avis Google'
+  );
+
+  $args = array(
+    'labels' => $labels,
+    'public' => true,
+    'has_archive' => true,
+    'show_in_rest' => true,
+    'supports' => array( 'title','thumbnail' ),
+    'menu_position' => 5, 
+    'menu_icon' => 'dashicons-star-filled',
+  );
+
+  register_post_type( 'avis_google', $args );
 }
 add_action( 'init', 'lesfreresweb_register_post_types' ); // Le hook init lance la fonction
 

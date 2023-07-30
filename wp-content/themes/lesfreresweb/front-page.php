@@ -14,9 +14,9 @@
 
         <div class="formules__wrapper">
           <?php 
-            $nosFormules = get_field('nos-formules_a-la-une');
-            if( $nosFormules ):
-              foreach( $nosFormules as $post ):
+            $posts = get_field('nos-formules_a-la-une');
+            if( $posts ):
+              foreach( $posts as $post ):
                 setup_postdata( $post );
           ?>
             <div class="formule-card">
@@ -46,8 +46,8 @@
               >
             </div>
           <?php 
-                wp_reset_postdata();
               endforeach;
+              wp_reset_postdata();
             endif;
           ?>
 
@@ -84,5 +84,86 @@
       </div>
     </div>
   </section>
+
+  <!-- SECTION AVIS -->
+  <section class="section-avis u-padding-vertical-big">
+    <!-- <span class="halo halo--blue halo--first"></span>
+    <span class="halo halo--yellow halo--second"></span>
+    <span class="halo halo--yellow halo--third"></span>
+    <span class="halo halo--blue halo--fourth"></span> -->
+    <div class="container">
+      <div class="avis">
+        <h2 class="u-title u-center-text u-margin-bottom-small">
+          Ce qu’ils en pensent
+        </h2>
+        <?php
+          global $wpdb;
+          $moyenne_notes = $wpdb->get_var(
+              "SELECT AVG(CAST(meta_value AS DECIMAL(10,1))) 
+              FROM $wpdb->postmeta
+              WHERE meta_key = 'avis-google_rating' 
+              AND post_id IN (SELECT ID FROM $wpdb->posts WHERE post_type = 'avis_google')"
+          );
+          $moyenne_notes = round($moyenne_notes, 1);
+          $moyenne_notes = str_replace('.', ',', $moyenne_notes);
+        
+          // 1. On définit les arguments pour définir ce que l'on souhaite récupérer
+          $args = array(
+            'post_type' => 'avis_google',
+            'post_status' => 'publish', // Uniquement les avis publiés
+            'posts_per_page' => -1, // Récupérer tous les avis
+            'fields' => 'ids' // Récupérer uniquement les IDs des avis pour améliorer les performances
+          );
+          // 2. On exécute la WP Query
+          $avis_query = new WP_Query( $args );
+          // Récupérer le nombre total d'avis
+          $nombre_total_avis = $avis_query->post_count;
+        ?>
+        <p class="avis__average u-margin-bottom-small">
+          Noté <?php echo $moyenne_notes; ?> sur <?php echo $nombre_total_avis; ?> avis
+        </p>
+
+        <div class="avis__wrapper u-margin-bottom-small">
+          <?php 
+              $posts = get_field('their-thoughts_a-la-une');
+              if( $posts ):
+                foreach( $posts as $post ):
+                  setup_postdata( $post );
+          ?>
+            <article class="avis-card">
+              <svg class="avis-card__avatar">
+                <use href="<?php echo get_template_directory_uri(); ?>/assets/svg-icons/sprite.svg#avis-avatar"></use>
+              </svg>
+              <h3 class="avis-card__title"><?php the_title(); ?></h3>
+              <p class="avis-card__desc">
+                <?php the_field('avis-google_text'); ?>
+              </p>
+              <div class="avis-card__stars">
+                <?php for( $i = 0; $i < get_field('avis-google_rating'); $i++ ): ?>
+                  <svg class="avis-card__star">
+                    <use href="<?php echo get_template_directory_uri(); ?>/assets/svg-icons/sprite.svg#avis-star"></use>
+                  </svg>
+                <?php endfor; ?>
+                <?php if( get_field('avis-google_rating') < 5 ): ?>
+                  <?php for( $i = 0; $i < abs(5-get_field('avis-google_rating')); $i++ ): ?>
+                    <svg class="avis-card__star">
+                      <use href="<?php echo get_template_directory_uri(); ?>/assets/svg-icons/sprite.svg#avis-star-stroke"></use>
+                    </svg>
+                  <?php endfor; ?>  
+                <?php endif; ?>
+              </div>
+            </article>
+          <?php
+                endforeach;
+                wp_reset_postdata();
+              endif;
+          ?>
+        </div>
+
+        <a href="#" class="link link--black">Voir tous les avis</a>
+      </div>
+    </div>
+  </section>
+  
 
 <?php get_footer(); ?>
