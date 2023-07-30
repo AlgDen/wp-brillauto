@@ -67,4 +67,22 @@
     </div>
   </section>
 
+  <!-- SECTION PROCESSUS -->
+  <section class="section-processus u-padding-vertical-big">
+    <div class="container container--small">
+      <div class="processus">
+        <h2 class="u-title u-margin-bottom-small"><?php the_field('notre-processus_title'); ?></h2>
+        <div class="processus__desc u-margin-bottom-small">
+          <?php the_field('notre-processus_description'); ?>
+        </div>
+        <?php
+          $iframe = get_field('notre-processus_oembed');
+          $iframe = str_replace('<iframe', '<iframe class="processus__iframe u-margin-bottom-small"', $iframe);
+          echo $iframe;
+        ?>
+        <a href="<?php the_field('notre-processus_link'); ?>" class="link link--white">En savoir plus</a>
+      </div>
+    </div>
+  </section>
+
 <?php get_footer(); ?>
