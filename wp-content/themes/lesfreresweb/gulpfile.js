@@ -3,15 +3,19 @@ const sass = require('gulp-sass')(require('sass'));
 const sourcemaps = require('gulp-sourcemaps');
 const cleanCSS = require('gulp-clean-css');
 const rename = require('gulp-rename');
+const autoprefixer = require('gulp-autoprefixer');
 
 function compileSass() {
   return gulp.src('css/src/main.scss')
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     .pipe(cleanCSS())
+    .pipe(autoprefixer({
+      cascade: false
+    }))
     .pipe(rename({ suffix: ".min" }))
     .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest('css/dest/'));
+    .pipe(gulp.dest('css/dest/'))
 }
 
 function watchSass() {
