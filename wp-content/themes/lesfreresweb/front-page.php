@@ -165,5 +165,40 @@
     </div>
   </section>
   
+  <!-- SECTION ENGAGEMENTS -->
+  <section class="section-engagements u-padding-vertical-big">
+    <div class="container">
+      <h2 class="u-title u-center-text u-margin-bottom-small">
+        Nos engagements
+      </h2>
+      <div class="engagements u-margin-bottom-small">
+        <ul class="engagements__list">
+          <?php 
+            $posts = get_field('nos-engagements_a-la-une');
+            if( $posts ):
+              foreach( $posts as $post ):
+                setup_postdata( $post );
+          ?>
+            <li class="engagements__item">
+              <svg class="engagements__icon">
+                <use href="<?php echo get_template_directory_uri(); ?>/assets/svg-icons/sprite.svg#<?php the_field('engagement_icon'); ?>"></use>
+              </svg>
+              <h3 class="engagements__title">
+                <?php the_title(); ?>
+              </h3>
+              <p class="engagements__desc">
+                <?php the_field('engagement_desc'); ?>
+              </p>
+            </li>
+          <?php 
+              endforeach;
+              wp_reset_postdata();
+            endif;
+          ?>
+        </ul>
+      </div>
+      <a href="<?php the_field('nos-engagements_link'); ?>" class="link link--white">En savoir plus</a>
+    </div>
+  </section>
 
 <?php get_footer(); ?>
