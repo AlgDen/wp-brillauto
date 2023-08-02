@@ -10,6 +10,7 @@
 
   &__list {
     list-style: none;
+    flex: 1 0 1%;
 
     display: flex;
     flex-direction: column;
@@ -38,17 +39,14 @@
   &__question {
     position: relative;
     @include title-little;
-
-    @include respond(tab-port) {
-      display: flex;
-    }
+    display: flex;
 
     &::before {
       content: "+";
 
       @include title-little;
       background-color: var(--color-secondary);
-      width: 4.4rem;
+      flex: 0 0 4.4rem;
       height: 4.4rem;
       border-radius: 50%;
       margin-right: 6.2rem;

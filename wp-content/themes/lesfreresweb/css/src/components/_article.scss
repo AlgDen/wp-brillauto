@@ -23,6 +23,7 @@
   }
 
   &__item {
+    flex: 1 0 1%;
     position: relative;
     border-radius: 2.8rem;
     border: 2px solid var(--color-grey-light);
@@ -155,6 +156,12 @@
     &--featured {
       -webkit-line-clamp: 1;
     }
+  }
+
+  &__link:link,
+  &__link:visited {
+    text-decoration: none;
+    color: var(--color-black);
   }
 
   &__desc {

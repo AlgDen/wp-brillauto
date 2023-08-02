@@ -195,6 +195,28 @@ function lesfreresweb_register_post_types() {
   );
 
   register_post_type( 'avis_google', $args );
+
+  // CPT FAQ
+  $labels = array(
+    'name' => 'FAQ',
+    'all_items' => 'Toutes les questions/réponses', // affiché dans le sous menu
+    'singular_name' => 'FAQ',
+    'add_new_item' => 'Ajouter une question/réponse',
+    'edit_item' => 'Modifier la question/réponse',
+    'menu_name' => 'FAQ'
+  );
+
+  $args = array(
+    'labels' => $labels,
+    'public' => true,
+    'has_archive' => true,
+    'show_in_rest' => true,
+    'supports' => array( 'title','thumbnail' ),
+    'menu_position' => 5,
+    'menu_icon' => 'dashicons-editor-help',
+  );
+
+  register_post_type( 'faq', $args );
 }
 add_action( 'init', 'lesfreresweb_register_post_types' ); // Le hook init lance la fonction
 

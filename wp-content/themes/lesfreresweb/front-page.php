@@ -1,5 +1,10 @@
 <?php get_header(); ?>
 
+<!-- MAIN -->
+<main>
+
+  <!-- @todo: ajouter bloc discover -->
+
   <!-- SECTION NOS FORMULES -->
   <section class="section-formules">
     <!-- <span class="halo halo--blue halo--first"></span>
@@ -201,4 +206,100 @@
     </div>
   </section>
 
+  <!-- SECTION FAQ -->
+  <section class="section-faq u-padding-vertical-bigger">
+    <div class="faq container u-margin-bottom-big">
+      <ul class="faq__list">
+        <?php 
+          $posts = get_field('faq_a-la-une');
+          if( $posts ):
+            foreach( $posts as $key => $post ):
+              setup_postdata( $post );
+              if($key < 4):
+        ?>
+          <li class="faq__item">
+            <h3 class="faq__question">
+              <?php the_title(); ?>
+            </h3>
+            <p class="faq__answer">
+              <?php the_field('faq_answer'); ?>
+            </p>
+          </li>
+        <?php 
+              endif;
+            endforeach;
+            wp_reset_postdata();
+          endif;
+        ?>
+      </ul>
+      <ul class="faq__list">
+        <?php 
+          if( $posts ):
+            foreach( $posts as $key => $post ):
+              setup_postdata( $post );
+              if($key >= 4):
+        ?>
+          <li class="faq__item">
+            <h3 class="faq__question">
+              <?php the_title(); ?>
+            </h3>
+            <p class="faq__answer">
+              <?php the_field('faq_answer'); ?>
+            </p>
+          </li>
+        <?php 
+              endif;
+            endforeach;
+            wp_reset_postdata();
+          endif;
+        ?>
+      </ul>
+    </div>
+    <a href="<?php the_field('faq_link'); ?>" class="link link--black">Consulter la FAQ</a>
+  </section>
+
+  <!-- @todo: ajouter bloc contact us -->
+
+  <!-- SECTION BLOG -->
+  <section class="section-blog u-padding-vertical-huge">
+    <div class="container">
+      <h2 class="u-title u-center-text u-margin-bottom-big">
+        Nos derniers articles
+      </h2>
+      <ul class="article u-margin-bottom-small">
+        <?php 
+          $posts = get_field('nos-derniers-articles_a-la-une');
+          if( $posts ):
+            foreach( $posts as $post ):
+              setup_postdata( $post );
+        ?>
+          <li class="article__item">
+            <div class="article__left">
+              <p class="article__info">
+                <span class="article__date"><?php the_time( 'd/m/Y' ); ?></span>
+                <?php $categ = get_the_category(); ?>
+                <span class="article__categ"><?php echo $categ[0]->cat_name; ?></span>
+              </p>
+              <h4 class="article__title">
+                <a class="article__link" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+              </h4>
+              <div class="article__desc">
+                <?php the_excerpt(); ?>
+              </div>
+            </div>
+            <div class="article__right">
+              <img src="" alt="" class="article__img" />
+            </div>
+          </li>
+        <?php 
+            endforeach;
+            wp_reset_postdata();
+          endif;
+        ?>
+      </ul>
+      <a href="<?php echo esc_url( home_url('/blog') ); ?>" class="link link--black">Notre blog</a>
+    </div>
+  </section>
+  
+</main>
 <?php get_footer(); ?>
