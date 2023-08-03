@@ -276,11 +276,11 @@
           <li class="article__item">
             <div class="article__left">
               <p class="article__info">
-                <span class="article__date"><?php the_time( 'd/m/Y' ); ?></span>
+                <span class="article__date" title="Publié le <?php the_time( 'd/m/Y H:i:s' ); ?>"><?php the_time( 'd/m/Y' ); ?></span>
                 <?php $categ = get_the_category(); ?>
-                <span class="article__categ"><?php echo $categ[0]->cat_name; ?></span>
+                <span class="article__categ" title="Catégorie <?php echo $categ[0]->cat_name; ?>"><?php echo $categ[0]->cat_name; ?></span>
               </p>
-              <h4 class="article__title">
+              <h4 class="article__title" data-tooltip="Votre description alternative pour le titre">
                 <a class="article__link" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
               </h4>
               <div class="article__desc">
@@ -288,7 +288,8 @@
               </div>
             </div>
             <div class="article__right">
-              <img src="" alt="" class="article__img" />
+              <?php the_post_thumbnail( 'thumbnail' , array( 'class' => 'article__img') ); ?>
+              <!-- <img src="" alt="" class="article__img" /> -->
             </div>
           </li>
         <?php 
