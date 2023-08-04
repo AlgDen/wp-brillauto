@@ -3,7 +3,28 @@
 <!-- MAIN -->
 <main>
 
-  <!-- @todo: ajouter bloc discover -->
+  <!-- SECTION DISCOVER -->
+  <section class="section-discover u-padding-vertical-big">
+    <div class="container">
+      <div class="discover">
+        <div class="discover__left">
+          <h1 class="discover__title u-title"><?php the_field('discover_title'); ?></h1>
+          <div class="discover__paragraph"><?php the_field('discover_text'); ?></div>
+        </div>
+        <div class="discover__right">
+          <?php
+            $img_id = get_field('discover_img');
+            echo wp_get_attachment_image( $img_id, 'medium', false, array('class' => 'discover__img', 'decoding' => 'async', 'loading' => 'lazy') );
+          ?>
+          <!-- <img
+            src=""
+            alt="Image de découverte de la marque"
+            class="discover__img"
+          /> -->
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- SECTION NOS FORMULES -->
   <section class="section-formules">
@@ -181,10 +202,10 @@
           <?php 
             $posts = get_field('nos-engagements_a-la-une');
             if( $posts ):
-              foreach( $posts as $post ):
+              foreach( $posts as $key => $post ):
                 setup_postdata( $post );
           ?>
-            <li class="engagements__item">
+            <li class="engagements__item <?php echo $key === 3 ? "engagements__hide-responsive" : ''; ?>">
               <svg class="engagements__icon">
                 <use href="<?php echo get_template_directory_uri(); ?>/assets/svg-icons/sprite.svg#<?php the_field('engagement_icon'); ?>"></use>
               </svg>
@@ -258,7 +279,44 @@
     <a href="<?php the_field('faq_link'); ?>" class="link link--black">Consulter la FAQ</a>
   </section>
 
-  <!-- @todo: ajouter bloc contact us -->
+  <!-- SECTION CONTACT US -->
+  <section class="section-contact-us u-padding-vertical-big">
+    <div class="container container--contact-us">
+      <div class="contact-us__decor">
+        <?php 
+          $img_id = get_field('contact_image');
+          echo wp_get_attachment_image( $img_id, '', false, array('class' => 'contact-us__img') );
+        ?>
+
+      </div>
+      <div class="contact-us">
+        <p class="contact-us__info-title">Une question à nous poser ?</p>
+        <p class="contact-us__info-subtitle">Ecrivez-nous un message !</p>
+        <?php echo do_shortcode('[contact-form-7 id="191" title="Contact form" html_class="form"]'); ?>
+
+        <!-- <form action="#" class="form">
+          <input
+            type="email"
+            class="form__input"
+            placeholder="Votre email"
+          />
+          <textarea
+            name="#"
+            id=""
+            cols="30"
+            rows="10"
+            placeholder="Votre message"
+            class="form__textarea"
+          ></textarea>
+          <button
+            class="btn btn--blue btn--animation-scale btn--shadow form__submit"
+          >
+            Envoyer
+          </button>
+        </form> -->
+      </div>
+    </div>
+  </section>
 
   <!-- SECTION BLOG -->
   <section class="section-blog u-padding-vertical-huge">

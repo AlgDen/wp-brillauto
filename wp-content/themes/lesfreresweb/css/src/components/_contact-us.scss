@@ -58,42 +58,43 @@
   }
 
   &__decor {
-    position: relative;
-
+    height: 100%;
     z-index: 1;
     position: absolute;
     top: 50%;
     left: 0;
     transform: translate(0, -50%);
 
+    display: flex;
+    align-items: center;
+
     @include respond(tab-land) {
       top: 0;
       transform: translate(0, 0);
       width: 100%;
-      height: 100%;
+    }
+  }
+
+  &__img {
+    display: block;
+    width: 60rem;
+    height: 80%;
+    object-fit: cover;
+    backdrop-filter: blur(5px) !important;
+    background: rgba(255, 255, 255, 0.2);
+
+    border-top-right-radius: 2.8rem;
+    border-bottom-right-radius: 2.8rem;
+
+    @media screen and (max-width: 87.5em) {
+      transform: translate(-4rem, 0);
     }
 
-    &::before {
-      content: "";
-      display: block;
-      width: 60rem;
-      height: 50rem;
-      background: url("/img/service-client.jpg") no-repeat;
-      background-size: cover;
-
-      border-top-right-radius: 2.8rem;
-      border-bottom-right-radius: 2.8rem;
-
-      @media screen and (max-width: 87.5em) {
-        transform: translate(-4rem, 0);
-      }
-
-      @include respond(tab-land) {
-        width: 100%;
-        height: 100%;
-        transform: translate(0, 0);
-        border-radius: 0;
-      }
+    @include respond(tab-land) {
+      width: 100%;
+      height: 100%;
+      transform: translate(0, 0);
+      border-radius: 0;
     }
   }
 }

@@ -26,6 +26,7 @@
   &__textarea {
     display: block;
     padding: 1.8rem 3.2rem;
+    margin-bottom: 1.6rem;
     @include text;
     font-family: inherit;
 
@@ -44,7 +45,7 @@
 
   &__submit {
     cursor: pointer;
-    margin-top: 2.4rem;
+    margin-top: 0.8rem;
     align-self: center;
     color: var(--color-white);
 
@@ -56,5 +57,35 @@
     &--footer {
       color: var(--color-black);
     }
+  }
+}
+
+.wpcf7-form-control-wrap {
+  width: 100%;
+}
+
+.wpcf7 {
+  width: 100% !important;
+
+  .form__input {
+    width: 100% !important;
+  }
+
+  .form__textarea {
+    width: 100% !important;
+  }
+
+  .wpcf7-not-valid-tip {
+    margin-top: -1rem !important;
+    margin-bottom: 2rem !important;
+    font-size: 1.6rem !important;
+  }
+
+  .wpcf7-response-output {
+    font-size: 1.6rem !important;
+    border-radius: 1rem !important;
+    padding: 1rem 1.6rem !important;
+    margin: 0 !important;
+    color: #46b450 !important;
   }
 }

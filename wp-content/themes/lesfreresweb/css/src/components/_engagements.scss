@@ -7,6 +7,10 @@
     list-style: none;
     flex-wrap: wrap;
 
+    @include respond(tab-port) {
+      flex-wrap: nowrap;
+    }
+
     &--detail-page {
       flex-direction: column;
       gap: 6.4rem;

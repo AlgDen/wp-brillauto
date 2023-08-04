@@ -249,3 +249,4 @@ if( function_exists( 'acf_add_options_page' ) ) {
 //   return $mimes;
 // }
 // add_filter('upload_mimes', 'custom_mime_types');
+
