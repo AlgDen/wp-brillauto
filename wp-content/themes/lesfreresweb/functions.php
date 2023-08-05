@@ -123,7 +123,7 @@ function lesfreresweb_register_post_types() {
         'public' => true,
         'has_archive' => true,
         'show_in_rest' => true,
-        'supports' => array( 'title', 'editor','thumbnail' ),
+        'supports' => array( 'title','thumbnail' ),
         'menu_position' => 5, 
         'menu_icon' => 'dashicons-cart',
   );

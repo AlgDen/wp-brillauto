@@ -13,7 +13,7 @@
     <?php wp_body_open(); ?>
 
     <!-- HEADER -->
-    <header class="header header--full-height">
+    <header class="header <?php if(is_front_page()) : echo 'header--full-height'; endif; ?>">
       <div class="navigation">
 
         <a href="<?php echo home_url( '/' ); ?>" class="navtop__logo">
