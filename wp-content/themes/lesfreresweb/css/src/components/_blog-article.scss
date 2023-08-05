@@ -20,4 +20,10 @@
     background-color: var(--color-grey-light);
     margin: 5.8rem auto;
   }
+
+  &__nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
