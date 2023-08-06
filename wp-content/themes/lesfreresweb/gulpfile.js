@@ -4,6 +4,17 @@ const sourcemaps = require('gulp-sourcemaps');
 const cleanCSS = require('gulp-clean-css');
 const rename = require('gulp-rename');
 const autoprefixer = require('gulp-autoprefixer');
+const minify = require('gulp-minify');
+var concat = require('gulp-concat');
+
+
+function compileJS() {
+  return gulp.src('js/src/*.js')
+    .pipe(minify({ noSource: true }))
+    .pipe(concat('script.js'))
+    .pipe(rename({ suffix: ".min" }))
+    .pipe(gulp.dest('js/dest/'))
+}
 
 function compileSass() {
   return gulp.src('css/src/main.scss')
@@ -23,5 +34,6 @@ function watchSass() {
 }
 
 exports.css = gulp.series(compileSass);
+exports.js = gulp.series(compileJS);
 
 exports.watchSass = watchSass;
