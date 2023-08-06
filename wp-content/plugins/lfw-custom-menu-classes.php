@@ -1,9 +1,9 @@
 <?php
 /*
-Plugin Name: Custom Menu Classes Plugin
+Plugin Name: LFW - Custom Menu Classes Plugin
 Description: Allows adding custom classes to menu items.
 Version: 1.0
-Author: Les Frères Web - Alguiriev Deni & Alguiriev Adam
+Author: Les Frères Web - ALGUIRIEV Adam & ALGUIRIEV Deni
 Author URI: https://lesfreresweb.fr
 */
 
