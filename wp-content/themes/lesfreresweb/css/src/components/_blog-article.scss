@@ -29,6 +29,7 @@
     flex-direction: row;
     justify-content: space-between;
     background-color: var(--color-primary);
+    margin-bottom: -7rem;
   }
 
   &__link {
@@ -46,6 +47,7 @@
 
       &:hover {
         box-shadow: var(--box-shadow);
+        background-color: var(--color-blue-dark);
       }
     }
   }
@@ -59,10 +61,6 @@
   &__previous,
   &__next {
     flex: 1;
-
-    &:hover {
-      background-color: var(--color-blue-dark);
-    }
   }
 
   &__previous {

@@ -54,7 +54,6 @@
             );
           ?>
         </nav>
-
       </div>
 
       <?php if(is_front_page()) : ?>
@@ -75,6 +74,5 @@
               >
             </div>
         </div>
-      <?php endif; ?>
-      
+      <?php endif; ?>      
     </header>

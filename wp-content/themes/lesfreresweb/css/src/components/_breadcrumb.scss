@@ -1,0 +1,10 @@
+.breadcrumb {
+  background-color: var(--color-blue-dark);
+  color: var(--color-white);
+  padding: 2.8rem 0;
+
+  a:link,
+  a:visited {
+    color: var(--color-white);
+  }
+}
