@@ -11,21 +11,29 @@ function lesfreresweb_register_assets() {
   // // Déclarer jQuery
   wp_enqueue_script('jquery' );
   
+  // Déclarer un fichier CSS
+  wp_enqueue_style( 
+    'leaflet-css',
+    'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css',
+    array(),
+    '1.0'
+  );
+  
   // Déclarer un fichier JS
   wp_enqueue_script( 
-      'script', 
-      get_template_directory_uri() . '/js/dest/script.min.js', 
-      array( 'jquery', 'leaflet' ), 
-      '1.1', 
-      true
+    'leaflet-js', 
+    'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js', 
+    array('jquery'), 
+    '1.1', 
+    true
   );
 
   // Déclarer un fichier JS
   wp_enqueue_script( 
-      'leaflet', 
-      'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js', 
-      array(), 
-      '1.1', 
+      'script', 
+      get_template_directory_uri() . '/js/dest/script.min.js', 
+      array( 'jquery', 'leaflet-js' ), 
+      '1.2', 
       true
   );
   
@@ -52,6 +60,9 @@ add_action( 'wp_enqueue_scripts', 'lesfreresweb_register_assets' );
 register_nav_menus( array(
 	'main-top' => 'Menu Principal Haut',
 	'main-bottom' => 'Menu Principal Bas',
+  'nav-bottom-left-1' => 'Footer menu gauche 1',
+  'nav-bottom-left-2' => 'Footer menu gauche 2',
+  'nav-bottom-left-3' => 'Footer menu gauche 3',
 ) );
 
 // ajoute des classes personnalisées aux menu items 
