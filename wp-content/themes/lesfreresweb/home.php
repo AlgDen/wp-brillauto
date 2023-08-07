@@ -34,9 +34,7 @@
             wp_reset_postdata();
           ?>
         </ul>
-        <a href="#" class="btn btn--blue btn--shadow btn--animation-scale"
-          >Afficher plus articles</a
-        >
+        <button class="btn btn--blue btn--shadow btn--animation-scale">Afficher plus articles</button>
       </div>
     </div>
   </section>

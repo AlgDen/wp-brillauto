@@ -7,6 +7,9 @@
   font-size: var(--font-size-subtitle);
   font-weight: var(--font-weight-medium);
   text-align: center;
+  border: none;
+  color: var(--color-white);
+  cursor: pointer;
 
   &--white {
     background-color: var(--color-white);

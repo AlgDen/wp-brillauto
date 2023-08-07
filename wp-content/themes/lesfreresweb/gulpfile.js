@@ -9,7 +9,10 @@ var concat = require('gulp-concat');
 
 
 function compileJS() {
-  return gulp.src('js/src/*.js')
+  return gulp.src([
+    'js/src/*.js',
+    // '../../plugins/lfw-ajax-load-more-posts/js/*.js'
+  ])
     .pipe(minify({ noSource: true }))
     .pipe(concat('script.js'))
     .pipe(rename({ suffix: ".min" }))

@@ -67,7 +67,7 @@
                   endif;
                 ?>
               </div>
-              <a href="<?php the_permalink(); ?>" class="btn btn--blue"
+              <a href="<?php the_permalink(); ?>" class="btn btn--blue btn--animation-scale"
                 >Voir plus</a
               >
             </div>
