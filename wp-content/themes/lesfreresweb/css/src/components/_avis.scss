@@ -17,4 +17,9 @@
       flex-wrap: wrap;
     }
   }
+
+  &__title::before {
+    content: "";
+    background: url("../../assets/svg-icons/sprite.svg#");
+  }
 }

@@ -8,20 +8,15 @@
     <div class="container">
       <div class="discover">
         <div class="discover__left">
-          <h1 class="discover__title u-title"><?php the_field('discover_title'); ?></h1>
+          <h1 class="discover__title u-title u-center-text"><?php the_field('discover_title'); ?></h1>
           <div class="discover__paragraph"><?php the_field('discover_text'); ?></div>
         </div>
-        <div class="discover__right">
+        <!-- <div class="discover__right">
           <?php
-            $img_id = get_field('discover_img');
-            echo wp_get_attachment_image( $img_id, 'medium', false, array('class' => 'discover__img', 'decoding' => 'async', 'loading' => 'lazy') );
+            //$img_id = get_field('discover_img');
+            //echo wp_get_attachment_image( $img_id, 'medium', false, array('class' => 'discover__img', 'decoding' => 'async', 'loading' => 'lazy') );
           ?>
-          <!-- <img
-            src=""
-            alt="Image de découverte de la marque"
-            class="discover__img"
-          /> -->
-        </div>
+        </div> -->
       </div>
     </div>
   </section>
@@ -119,7 +114,7 @@
     <span class="halo halo--blue halo--fourth"></span> -->
     <div class="container">
       <div class="avis">
-        <h2 class="u-title u-center-text u-margin-bottom-small">
+        <h2 class="avis__title u-title u-center-text u-margin-bottom-small">
           Ce qu’ils en pensent
         </h2>
         <?php
@@ -145,8 +140,13 @@
           // Récupérer le nombre total d'avis
           $nombre_total_avis = $avis_query->post_count;
         ?>
-        <p class="avis__average u-margin-bottom-small">
+        <p class="avis__average  u-margin-bottom-smaller">
           Noté <?php echo $moyenne_notes; ?> sur <?php echo $nombre_total_avis; ?> avis
+        </p>
+        <p class="avis-card__google-p u-center-text u-text  u-margin-bottom-small">Avis certifiés Google
+          <svg class="avis-card__google-icon">
+            <use href="<?php echo get_template_directory_uri(); ?>/assets/svg-icons/sprite.svg#google"></use>
+          </svg>
         </p>
 
         <div class="avis__wrapper u-margin-bottom-small">
