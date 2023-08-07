@@ -5,7 +5,7 @@
         >Publié le <?php the_time('d/m/Y'); ?></span
       >
       <span class="article__categ article__categ--featured"
-        >Catégorie <?php echo get_the_category()[0]->cat_name; ?></span
+        >Catégorie <?php echo isset(get_the_category()[0]) ? get_the_category()[0]->cat_name : ''; ?></span
       >
     </p>
     <h4 class="article__title article__title--featured">

@@ -34,7 +34,7 @@
             wp_reset_postdata();
           ?>
         </ul>
-        <button class="btn btn--blue btn--shadow btn--animation-scale">Afficher plus articles</button>
+        <input type="button" id="load-more-posts" class="btn btn--blue btn--shadow btn--animation-scale" value="Afficher plus articles" />
       </div>
     </div>
   </section>

@@ -1,18 +1,32 @@
 (function ($) {
   $(document).ready(function () {
+    // bouton load more
+    const loadMoreBtn = $('#load-more-posts');
 
-    $.post(my_ajax_obj.ajax_url, {	//the server_url
-      action: "load_more_posts__json",	//the submit_data array
-      _ajax_nonce: my_ajax_obj.nonce,
-    }, function (data) {		//the callback_handler
-      if (data.success) {
-        // La requête a réussi (statut "success")
-        console.log("Success: ", data); // data.data contient les données renvoyées par le serveur
-      } else {
-        // La requête a échoué (statut "error")
-        console.log("Error: ", data); // data.data contient les informations sur l'erreur renvoyée par le serveur
-      }
-    });
+    // clic event
+    if (!loadMoreBtn.hasClass('btn--disabled')) {
+      loadMoreBtn.on('click', function (e) {
+        var nbPosts = $('.article__item').length;
+
+        // requête ajax post
+        $.post(my_ajax_obj.ajax_url, {
+          action: "load_more_posts__json",
+          _ajax_nonce: my_ajax_obj.nonce,
+          offset: nbPosts
+        }, function (data) {
+          if (data.success) {
+            // ajouter le html au DOM
+            var list = $('ul.article');
+            list.append(data.data);
+          } else {
+            // ajouter la classe disabled et changer le texte
+            loadMoreBtn.addClass('btn--disabled');
+            loadMoreBtn.val('Aucun résultat à afficher');
+          }
+        });
+
+      });
+    }
 
   })
 })(jQuery);

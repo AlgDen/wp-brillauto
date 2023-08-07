@@ -45,17 +45,45 @@
  add_action( 'wp_ajax_load_more_posts__json', 'load_more_posts__json' );
  add_action( 'wp_ajax_nopriv_load_more_posts__json', 'load_more_posts__json' );
 
- /**
-  * Handles my AJAX request using JSON
-  */
- function load_more_posts__json() {
+/**
+ * Handles my AJAX request using JSON
+ */
+function load_more_posts__json() {
+  // Verify the nonce
+  check_ajax_referer( 'load-more-posts' );
   
-   // Verify the nonce
-   check_ajax_referer( 'load-more-posts' );
+  
+  // // posts_not_in = array d'ids de posts à ne pas récupérer
+  // $posts_not_in = $_POST['posts_not_in'];
+  // offset = reçu de la requête ajax, nombre de posts déjà chargés
+  $offset = (int)$_POST['offset'];
 
-   // Handle the ajax request here
+  // récupérer 3 posts avec le offset
+  $args = array(
+    'post_type'      => 'post',
+    'posts_per_page' => 3,
+    'offset'         => $offset,
+    'orderby' => 'date'
+  );
 
-  //  Réponse
-    // wp_send_json_success($data);
-    // wp_send_json_error($data);
- }
+  $query = new WP_Query( $args );
+  
+  $html = '';
+
+  if ( $query->have_posts() ) {
+    while ( $query->have_posts() ) {
+      $query->the_post();
+      ob_start();
+      get_template_part('parts/article-default');
+      $html .= ob_get_contents();
+      ob_end_clean();
+    }
+    wp_reset_postdata();
+
+    // return response
+    wp_send_json_success($html);
+  } else {
+    wp_send_json_error("no post found");
+  }
+  
+}
