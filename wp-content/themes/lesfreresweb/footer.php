@@ -64,17 +64,17 @@
       </div>
       <div class="footer__maps" id="map"></div>
       <div class="footer__socials">
-        <a href="#" class="footer__social">
+        <a href="<?php the_field('options_instagram', 'options'); ?>" class="footer__social">
           <svg class="footer__icon">
             <use href="<?php echo get_template_directory_uri(); ?>/assets/svg-icons/sprite.svg#instagram"></use>
           </svg>
         </a>
-        <a href="#" class="footer__social">
+        <a href="<?php the_field('options_facebook', 'options'); ?>" class="footer__social">
           <svg class="footer__icon">
             <use href="<?php echo get_template_directory_uri(); ?>/assets/svg-icons/sprite.svg#facebook"></use>
           </svg>
         </a>
-        <a href="#" class="footer__social">
+        <a href="<?php the_field('options_twitter', 'options'); ?>" class="footer__social">
           <svg class="footer__icon">
             <use href="<?php echo get_template_directory_uri(); ?>/assets/svg-icons/sprite.svg#twitter"></use>
           </svg>
