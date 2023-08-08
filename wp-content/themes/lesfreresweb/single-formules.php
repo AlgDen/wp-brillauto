@@ -24,6 +24,7 @@
           </div>
         </div>
         <div class="single-formule__content">
+            <h2 class="u-title-little u-center-text u-margin-bottom-small">Quelques unes des étapes du nettoyage</h2>
           <ul class="single-formule__list">
             <?php
               // Check rows exists

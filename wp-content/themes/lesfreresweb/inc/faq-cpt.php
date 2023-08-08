@@ -11,6 +11,6 @@ add_action( 'template_redirect', 'faq_redirect_post' );
 function faq_redirect_post() {
   if ( is_singular( 'faq' ) ) {
       wp_redirect(home_url(), 301);
-      wp_die();
+      exit;
   }
 }

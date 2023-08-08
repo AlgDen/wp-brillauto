@@ -4,8 +4,9 @@
     const loadMoreBtn = $('#load-more-posts');
 
     // clic event
-    if (!loadMoreBtn.hasClass('btn--disabled')) {
-      loadMoreBtn.on('click', function (e) {
+
+    loadMoreBtn.on('click', function (e) {
+      if (!loadMoreBtn.hasClass("btn--disabled")) {
         var nbPosts = $('.article__item').length;
 
         // requête ajax post
@@ -25,8 +26,8 @@
           }
         });
 
-      });
-    }
+      }
+    });
 
-  })
+  });
 })(jQuery);
