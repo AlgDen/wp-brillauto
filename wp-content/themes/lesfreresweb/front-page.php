@@ -123,7 +123,8 @@
               "SELECT AVG(CAST(meta_value AS DECIMAL(10,1))) 
               FROM $wpdb->postmeta
               WHERE meta_key = 'avis-google_rating' 
-              AND post_id IN (SELECT ID FROM $wpdb->posts WHERE post_type = 'avis_google')"
+              AND post_id IN (SELECT ID FROM $wpdb->posts WHERE post_type = 'avis_google' AND (post_status = 'publish'))
+              "
           );
           $moyenne_notes = round($moyenne_notes, 1);
           $moyenne_notes = str_replace('.', ',', $moyenne_notes);
@@ -182,6 +183,11 @@
           <?php
                 endforeach;
                 wp_reset_postdata();
+              else:
+          ?>
+            <p class="u-text u-center-text">BrillAuto n'a pas encore d'avis Google</p>
+          <?php
+
               endif;
           ?>
         </div>
