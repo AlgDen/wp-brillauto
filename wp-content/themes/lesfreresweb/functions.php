@@ -1,5 +1,8 @@
 <?php 
 
+include_once __DIR__ . '/inc/faq-cpt.php';
+include_once __DIR__ . '/inc/formules-cpt.php';
+
 // Ajouter la prise en charge des images mises en avant
 add_theme_support( 'post-thumbnails' );
 
@@ -260,4 +263,3 @@ if( function_exists( 'acf_add_options_page' ) ) {
 //   return $mimes;
 // }
 // add_filter('upload_mimes', 'custom_mime_types');
-
