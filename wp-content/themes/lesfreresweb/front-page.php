@@ -362,6 +362,9 @@
           endif;
         ?>
       </ul>
+        <?php if(!$posts) : ?>
+            <p class="u-center-text u-text u-margin-bottom-small">Aucun article à afficher pour le moment..</p>
+        <?php endif; ?>
       <a href="<?php echo esc_url( home_url('/blog') ); ?>" class="link link--black">Notre blog</a>
     </div>
   </section>

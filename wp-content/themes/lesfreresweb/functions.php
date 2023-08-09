@@ -167,27 +167,27 @@ function lesfreresweb_register_post_types() {
 
   register_post_type( 'engagements', $args );
 
-  // CPT Réalisations
-  $labels = array(
-    'name' => 'Réalisations',
-    'all_items' => 'Toutes les réalisations',  // affiché dans le sous menu
-    'singular_name' => 'Réalisation',
-    'add_new_item' => 'Ajouter une réalisation',
-    'edit_item' => 'Modifier la réalisation',
-    'menu_name' => 'Réalisations'
-  );
-
-  $args = array(
-        'labels' => $labels,
-        'public' => true,
-        'has_archive' => true,
-        'show_in_rest' => true,
-        'supports' => array( 'title', 'editor','thumbnail' ),
-        'menu_position' => 5, 
-        'menu_icon' => 'dashicons-format-gallery',
-  );
-
-  register_post_type( 'realisations', $args );
+//  // CPT Réalisations
+//  $labels = array(
+//    'name' => 'Réalisations',
+//    'all_items' => 'Toutes les réalisations',  // affiché dans le sous menu
+//    'singular_name' => 'Réalisation',
+//    'add_new_item' => 'Ajouter une réalisation',
+//    'edit_item' => 'Modifier la réalisation',
+//    'menu_name' => 'Réalisations'
+//  );
+//
+//  $args = array(
+//        'labels' => $labels,
+//        'public' => true,
+//        'has_archive' => true,
+//        'show_in_rest' => true,
+//        'supports' => array( 'title', 'editor','thumbnail' ),
+//        'menu_position' => 5,
+//        'menu_icon' => 'dashicons-format-gallery',
+//  );
+//
+//  register_post_type( 'realisations', $args );
 
   // CPT Avis google
   $labels = array(
