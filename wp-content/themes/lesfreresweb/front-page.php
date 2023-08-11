@@ -342,7 +342,7 @@
               <p class="article__info">
                 <span class="article__date" title="Publié le <?php the_time( 'd/m/Y H:i:s' ); ?>"><?php the_time( 'd/m/Y' ); ?></span>
                 <?php $categ = get_the_category(); ?>
-                <span class="article__categ" title="Catégorie <?php echo $categ[0]->cat_name; ?>"><?php echo $categ[0]->cat_name; ?></span>
+                <span class="article__categ" title="Catégorie <?php echo isset(get_the_category()[0]) ? get_the_category()[0]->cat_name : ''; ?>"><?php echo isset(get_the_category()[0]) ? get_the_category()[0]->cat_name : ''; ?></span>
               </p>
               <h4 class="article__title" data-tooltip="Votre description alternative pour le titre">
                 <a class="article__link" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
