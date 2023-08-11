@@ -6,7 +6,7 @@
   <section class="section-single-formule u-padding-vertical-big">
     <div class="container">
       <div class="single-formule">
-        <div class="single-formule__head u-margin-bottom-bigger">
+        <div class="single-formule__head u-margin-bottom-big">
           <div class="single-formule__left">
             <h1 class="single-formule__title u-title">
               <?php the_title(); ?>
