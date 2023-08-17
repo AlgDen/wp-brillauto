@@ -3,6 +3,7 @@
 include_once __DIR__ . '/inc/faq-cpt.php';
 include_once __DIR__ . '/inc/formules-cpt.php';
 include_once __DIR__ . '/inc/engagements-cpt.php';
+include_once __DIR__ . '/inc/avis-google-cpt.php';
 
 // Ajouter la prise en charge des images mises en avant
 add_theme_support( 'post-thumbnails' );
