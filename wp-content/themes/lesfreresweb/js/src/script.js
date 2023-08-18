@@ -8,19 +8,19 @@ for (var i = 0; i < faqItems.length; i++) {
 
 
 var map = L.map('map', {
-  center: [47.20553822633308, -1.6160678318471642],
+  center: [47.21701644857339, -1.5551846587943043],
   zoom: 12,
   title: 'test',
 });
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
-var marker = L.marker([47.20553822633308, -1.6160678318471642], {
-  title: "21 Rue de Marseille, Saint-Herblain 44800",
+var marker = L.marker([47.21701644857339, -1.5551846587943043], {
+  title: "Nous travaillons sur Nantes et alentours",
   direction: "center"
 
 }).addTo(map);
-marker.bindPopup("<b>BrillAuto</b>").openPopup();
+marker.bindPopup("<b>BrillAuto - Lavage Auto Intérieur</b>").openPopup();
 
 // Sélectionnez le checkbox et la classe navbot
 const checkbox = document.querySelector('.navtop__checkbox');
