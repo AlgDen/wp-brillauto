@@ -8,7 +8,7 @@
     <div class="container">
       <div class="discover">
         <div class="discover__left">
-          <h1 class="discover__title u-title u-center-text"><?php the_field('discover_title'); ?></h1>
+          <h2 class="discover__title u-title u-center-text"><?php the_field('discover_title'); ?></h2>
           <div class="discover__paragraph"><?php the_field('discover_text'); ?></div>
         </div>
         <!-- <div class="discover__right">
