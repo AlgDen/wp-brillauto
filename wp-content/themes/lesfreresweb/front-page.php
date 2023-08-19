@@ -62,7 +62,7 @@
                   endif;
                 ?>
               </div>
-              <a href="<?php the_permalink(); ?>" class="btn btn--blue btn--animation-scale"
+              <a href="<?php the_permalink(); ?>" class="btn btn--blue btn--animation-scale" aria-label="Voir la page de détails de la formule <?php the_title(); ?>"
                 >Voir plus</a
               >
             </div>
@@ -101,7 +101,7 @@
           $iframe = str_replace('<iframe', '<iframe class="processus__iframe u-margin-bottom-small"', $iframe);
           echo $iframe;
         ?>
-        <a href="<?php the_field('notre-processus_link'); ?>" class="link link--white">En savoir plus</a>
+        <a href="<?php the_field('notre-processus_link'); ?>" class="link link--white" aria-label="Voir toutes les étapes de notre nettoyage avec notre vidéo et la description de chaque moment de la vidéo">En savoir plus</a>
       </div>
     </div>
   </section>
@@ -229,7 +229,7 @@
           ?>
         </ul>
       </div>
-      <a href="<?php the_field('nos-engagements_link'); ?>" class="link link--white">En savoir plus</a>
+      <a href="<?php the_field('nos-engagements_link'); ?>" class="link link--white" aria-label="Voir la page qui liste nos engagements pour un nettoyage propre et durable">En savoir plus</a>
     </div>
   </section>
 
