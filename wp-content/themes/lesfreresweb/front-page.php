@@ -144,7 +144,7 @@
         <p class="avis__average  u-margin-bottom-smaller">
           Noté <?php echo $moyenne_notes; ?> sur <?php echo $nombre_total_avis; ?> avis
         </p>
-        <p class="avis-card__google-p u-center-text u-text  u-margin-bottom-small">Avis certifiés Google
+        <p class="avis-card__google-p u-center-text u-text  u-margin-bottom-small">Avis récupérés de Google
           <svg class="avis-card__google-icon">
             <use href="<?php echo get_template_directory_uri(); ?>/assets/svg-icons/sprite.svg#google"></use>
           </svg>
@@ -192,7 +192,7 @@
           ?>
         </div>
 
-        <a href="#" class="link link--black">Voir tous les avis</a>
+        <a href="https://g.page/r/Cb7IxUwgZ_v8EB0/review" class="link link--black" aria-label="Lien pour ajouter un avis Google sur notre fiche professionnelle Google">Laissez nous votre avis</a>
       </div>
     </div>
   </section>
